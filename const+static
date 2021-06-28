@@ -1,0 +1,45 @@
+/*注意：
+如果静态成员是const整数类型或枚举类型，则可以再类声明中初始化。
+举例：*/
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student
+{
+    private:
+        string  name;
+        int age;
+         static const int classno = 7; //注意这里
+        //static const int classno;
+    public:
+        Student(string name,int age)
+        {
+            this->name = name;
+            this->age = age;
+            cout<<"调用构造函数！"<<endl;
+        }
+
+        void show()
+        {
+            cout<<"name:"<<name<<endl;
+            cout<<"age:"<<age<<endl;
+        }
+
+        static void show_classno()
+        {
+            cout<<Student::classno<<endl;
+        }
+
+};
+
+int main()
+{
+    Student::show_classno();
+
+    Student s1("gh",23);
+    s1.show();
+    s1.show_classno();
+
+    return 0;
+}
