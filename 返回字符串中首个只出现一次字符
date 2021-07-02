@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+char firstUniqChar(char* s){
+  int len=strlen(s);
+  int temp[26] ={0};
+  int i;
+  for(i=0;i<len;i++){
+    temp[s[i]-97]+=1;
+  }
+  for(i=0;i<len;i++){
+    if(temp[s[i]-97]==1){
+      break;
+    }
+  }
+  return s[i];
+}
+
+int main(){
+  char a[]="loveleetcode";
+  printf("%c\n",firstUniqChar(a));
+  return 0;
+}
