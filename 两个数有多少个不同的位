@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main()
+{
+   int x,y,count=0;
+
+   printf("input x:");scanf("%d",&x);
+   printf("input y:");scanf("%d",&y);
+
+   while( x || y)
+   {
+	
+		   if( x%10 != y%10 )
+		    count++;
+
+
+   
+   x/=10;
+   y/=10;
+   
+   }
+
+   printf("有%d个不同的位为\n",count);
+
+   return 0;
+
+}
