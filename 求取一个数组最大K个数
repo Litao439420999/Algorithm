@@ -1,0 +1,37 @@
+求取一个数组最大K个数，返回k个数可以为任意排序，假设数组元素有N个，
+要求算法时间复杂度不大于O(N*log（K)），空间复杂度为O(1)。
+
+输入[3, 2, 1, 4, 5],2
+输出[5,4]
+
+#include <stdio.h>
+int main(void)
+{
+  int a[5],n;
+  int i,j,k,t;
+
+  printf("input array_a:\n");
+
+  for(i=0;i<5;i++)
+	  scanf("%d,",&a[i]);
+
+  printf("\n返回个数:");scanf("%d",&n);
+
+  for(i=0;i<n;i++)
+  {
+     k = i;
+	 for(j=i+1;j<5;j++)
+		 if(a[k]<a[j]) k=j;
+
+       t = a[i];
+	   a[i] = a[k];
+	   a[k] = t;
+
+	   printf("%d\t",a[i]);
+  
+  }
+
+return 0;
+
+
+}
